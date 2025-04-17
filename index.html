@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulación de Cola - Boca Juniors</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #queue-container {
+            padding: 20px;
+            border: 2px solid #005ca9;
+            display: inline-block;
+            background-color: #f0f8ff;
+        }
+        h1 {
+            color: #005ca9;
+        }
+        .queue-info {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+    <script>
+        function generateQueueData() {
+            let queueID = 'xxxx-xxxx-xxxx-xxxx'.replace(/[x]/g, () => 
+                (Math.random() * 16 | 0).toString(16)
+            );
+            let waitTime = Math.floor(Math.random() * 10) + 1; // Entre 1 y 10 minutos
+            document.getElementById("hlLinkToQueueTicket2").innerText = queueID;
+            document.getElementById("MainPart_lbWhichIsIn").innerText = waitTime + " MINUTO(S)";
+        }
+
+        window.onload = function () {
+            generateQueueData();
+            setInterval(generateQueueData, 5000); // Refrescar cada 5 segundos
+        };
+    </script>
+</head>
+<body>
+
+    <h1>Simulación de Cola - Boca Juniors</h1>
+    
+    <div id="queue-container">
+        <p class="queue-info">Tiempo estimado en la cola: <span id="MainPart_lbWhichIsIn">Cargando...</span></p>
+        <p class="queue-info">Queue ID: <span id="hlLinkToQueueTicket2">Cargando...</span></p>
+    </div>
+
+</body>
+</html>
